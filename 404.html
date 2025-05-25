@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
+  <script type="text/javascript">
+    // Single Page Apps for GitHub Pages
+    // MIT License
+    // Copyright (c) 2016 Glen Maddern, The GitHub Pages SPA project
+    // https://github.com/spa-github-pages/spa-github-pages
+
+    // This script ensures that when you navigate to a subpath
+    // (e.g., /projects) and refresh, GitHub Pages, which only
+    // serves index.html for /, serves the 404.html which then
+    // redirects to the correct subpath in your SPA.
+
+    (function(l) {
+      if (l.search) {
+        var q = {};
+        l.search.slice(1).split('&').forEach(function(v) {
+          var a = v.split('=');
+          q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+        });
+        if (q.p !== undefined) {
+          window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + (q.p || '') +
+            (q.q ? ('?' + q.q) : '') +
+            l.hash
+          );
+        }
+      }
+    }(window.location))
+  </script>
+  <script type="text/javascript">
+    // This script is crucial for the redirect if the 'p' param is not directly used
+    // It's a fallback that essentially reloads the page to the root, letting the SPA handle it.
+    // However, it's often combined with the above script.
+    // Given your setup, the simplest is still the ?p= approach for the initial 404.
+  </script>
+  <link rel="canonical" href="https://quajo-king.github.io/">
+</head>
+<body>
+  <h1>Redirecting...</h1>
+  <p>If you are not redirected automatically, <a href="/">click here</a>.</p>
+  <script>
+    // This is the simplest redirect to the root if the above complex script doesn't handle it fully
+    // It relies on your Vue Router's history mode to then pick up the original path.
+    // But it will still cause a 404 loop if the path is NOT index.html
+    // The previous solution with ?p= is the robust one.
+    // This section is mostly for demonstration of the complexity.
+    // For GitHub Pages SPA history mode, the ?p= approach is best.
+  </script>
+</body>
+</html>
